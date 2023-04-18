@@ -26,9 +26,10 @@ interface FormDataType {
 }
 
 const Img = styled('img')({
-  margin: 'auto',
+
   display: 'block',
   height: '150px',
+  width: '100%',
   maxWidth: '100%',
   maxHeight: '150px',
 });
@@ -83,7 +84,9 @@ const Properties = ({ properties }: { properties: any[] }) => {
               }}
               onClick={() => handleClickProperty(p)}
             >
-              <CardContent>
+              <CardContent sx={{
+                px: 0
+              }}>
                 {/* <Paper
                 sx={{
                   p: 2,
@@ -95,16 +98,16 @@ const Properties = ({ properties }: { properties: any[] }) => {
                 }}
               > */}
                 <Grid container spacing={2}>
-                  <Grid item xs={12}>
+                  <Grid item xs={12} sx={{ paddingTop: '0 !important' }}>
                     <Img alt="complex" src={p.display_image} />
                   </Grid>
-                  <Grid item xs={12} sm container>
+                  <Grid item xs={12} sm container p={2}>
                     <Grid item xs container direction="column" spacing={2}>
                       <Grid item xs>
-                        <Typography gutterBottom variant="subtitle1" component="div">
+                        <Typography gutterBottom variant="subtitle1" component="div" pl={2}>
                           {`$${p.prices.base_price}`}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography variant="body2" color="text.secondary" pl={2}>
                           {p.address.full}
                         </Typography>
                       </Grid>
